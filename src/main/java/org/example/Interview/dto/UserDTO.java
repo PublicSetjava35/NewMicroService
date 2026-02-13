@@ -1,22 +1,29 @@
 package org.example.Interview.dto;
 
 public class UserDTO {
-    private String email;
-    private String password;
+   private String name;
+   private Integer age;
 
-    public String getEmail() {
-        return email;
+
+   public UserDTO(String name, Integer age) {
+       this.name = name;
+       this.age = age;
+   }
+   public UserDTO() {}
+
+    public String getName() {
+        return name;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getPassword() {
-        return password;
+    public Integer getAge() {
+        return age;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setAge(Integer age) {
+        this.age = age;
     }
 }
