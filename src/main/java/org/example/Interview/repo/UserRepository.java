@@ -1,15 +1,14 @@
-package org.example.Interview.repositories;
+package org.example.Interview.repo;
 
-import org.example.Interview.db.User;
+import org.example.Interview.entity.User;
 import org.springframework.data.jpa.repository.EntityGraph;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-
 import java.util.Optional;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, Integer> {
-    @EntityGraph(attributePaths = "resourcesList")
+    @EntityGraph(attributePaths = {"orders"})
     Optional<User> findUserById(Integer id);
-    boolean existsByEmail(String email);
+    boolean existsUserByName(String name);
 }

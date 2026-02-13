@@ -1,22 +1,25 @@
-package org.example.Interview.db;
+package org.example.Interview.entity;
+
 
 import jakarta.persistence.*;
 
 @Entity
-public class Resources {
+@Table(name = "orders")
+public class Orders {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @Column(name = "items")
-    private String items;
+    @Column(name = "item_name")
+    private String itemName;
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
 
-    public Resources(String items) {
-        this.items = items;
+    public Orders(String itemName, User user) {
+        this.itemName = itemName;
+        this.user = user;
     }
-    public Resources() {}
+    public Orders() {}
 
     public Integer getId() {
         return id;
@@ -26,12 +29,12 @@ public class Resources {
         this.id = id;
     }
 
-    public String getItems() {
-        return items;
+    public String getItemName() {
+        return itemName;
     }
 
-    public void setItems(String items) {
-        this.items = items;
+    public void setItemName(String itemName) {
+        this.itemName = itemName;
     }
 
     public User getUser() {
